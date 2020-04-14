@@ -11,23 +11,6 @@ import { groupBy } from 'lodash'
 import { PieChart } from 'react-native-chart-kit'
 import { Colors, lighten } from './../styles/colors'
 
-const getRandomColor = () => {
-  var o = Math.round,
-    r = Math.random,
-    s = 255
-  return (
-    'rgba(' +
-    o(r() * s) +
-    ',' +
-    o(r() * s) +
-    ',' +
-    o(r() * s) +
-    ',' +
-    r().toFixed(1) +
-    ')'
-  )
-}
-
 function kFormatter(num) {
   return Math.abs(num) > 999
     ? Math.sign(num) * (Math.abs(num) / 1000).toFixed(1) +
@@ -36,7 +19,7 @@ function kFormatter(num) {
 }
 
 const GenderChart = ({ cases }) => {
-  const byGender = groupBy(cases, 'ageGroup')
+  const byGender = groupBy(cases, 'gender')
   const byGenderArray = []
   let index = 0
   for (const key in byGender) {

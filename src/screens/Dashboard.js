@@ -16,18 +16,6 @@ const Dashboard = () => {
     (state) => state.confirmedCases
   )
 
-  const buttons = [
-    'Toronto',
-    'GTA',
-    'Missisauga',
-    'Ontarioa',
-    'Ontarioa',
-    'Ontarioa',
-    'Ontarioa',
-    'asdas',
-  ]
-  const [selectedIndex, setSelectedIndex] = useState(0)
-
   useEffect(() => {
     dispatch(fetchConfirmedCasesStart({}))
   }, [])
@@ -40,11 +28,6 @@ const Dashboard = () => {
         <Text h5>Province - Ontario</Text>
       </View>
 
-      <ButtonGroup
-        onPress={setSelectedIndex}
-        selectedIndex={selectedIndex}
-        buttons={buttons}
-      />
       <GenderChart cases={cases} />
       <Card>
         <FlatList
